@@ -21,16 +21,45 @@ Luego, se implementaron dos componentes: `EmpresasComponent` y `EmpleadosCompone
 ## Ejecución local
 
 Para ejecutar este programa localmente, es necesario tener instalados Python, Django, Django Rest Framework y Node.js en tu computadora. A continuación, se detallan los pasos:
+Instalar Python: 
+   - Descarga e instala Python desde el sitio web oficial: [https://www.python.org/downloads/](https://www.python.org/downloads/).
+   - Asegúrate de agregar Python al PATH durante la instalación.
 
-1. Para iniciar el servidor Django, ejecuta el siguiente comando en la terminal:
+Instalar Node.js:
+   - Descarga e instala Node.js desde el sitio web oficial: [https://nodejs.org/](https://nodejs.org/).
+   - Asegúrate de agregar Node.js al PATH durante la instalación.
+
+1. En la carpeta `tu_empleado_perfecto_backend`, instala los requerimientos ejecutando el siguiente comando en la terminal:
+  
+```
+pip install -r requirements.txt
+
+```
+
+2. Para iniciar el servidor Django, ejecuta el siguiente comando en la terminal:
 
 ```
 python manage.py runserver
 ```
+3. En la carpeta `tu_empleado_perfecto_frontend`, instala las dependencias ejecutando el siguiente comando en la terminal:
+```
+npm install
+```
 
-
-2. Para iniciar el servidor de desarrollo de Angular, ejecuta el siguiente comando en la terminal:
+4. Para iniciar el servidor de desarrollo de Angular, ejecuta el siguiente comando en la terminal:
 
 ```
 ng serve
 ```
+
+
+### Ejecución en línea
+
+Además del desarrollo local, se ha habilitado una instancia EC2 en AWS  para acceder al proyecto. Se puede acceder a las siguientes URLs:
+
+- Frontend: [http://16.170.240.67:4200/](http://16.170.240.67:4200/)
+- Backend: [http://16.170.240.67:8000/](http://16.170.240.67:8000/)
+
+
+*Nota: Asegúrate de tener todas las dependencias y configuraciones correctas antes de ejecutar el programa.*
+
