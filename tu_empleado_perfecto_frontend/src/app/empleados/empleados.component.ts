@@ -1,4 +1,3 @@
-// empleados.component.ts
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 
@@ -21,9 +20,7 @@ export class EmpleadosComponent implements OnInit {
       this.apiService.getTodasEmpresas().subscribe((response: any) => {
           this.empresas = response;
       });
-
   }
-  
 
   filtroEmpresa: string = '';
 
@@ -44,12 +41,11 @@ export class EmpleadosComponent implements OnInit {
     this.filtroEmpresa = '';
     this.getEmpleados();
   }
-  
+
   crearEmpleado(empresa: string, nombre_completo: string, RUT: string, email: string): void {
-    this.apiService.postEmpleado({empresa: +empresa, nombre_completo, RUT, email}).subscribe(() => {
+    this.apiService.postEmpleado({empresa, nombre_completo, RUT, email}).subscribe(() => {
       // Recargar la lista de empleados después de la creación de uno nuevo
       this.getEmpleados();
     });
   }
-
 }

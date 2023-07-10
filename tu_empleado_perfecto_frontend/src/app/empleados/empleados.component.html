@@ -1,57 +1,55 @@
 <div class="container mt-4">
-    <h2>Lista de Empleados</h2>
-    
-    <form class="mb-3" (ngSubmit)="getEmpleados()">
-        <div class="mb-3">
-          <label for="empresaFiltro" class="form-label">Buscar por empresa</label>
-          <select class="form-control" id="empresaFiltro" [(ngModel)]="filtroEmpresa" name="filtroEmpresa">
-            <option *ngFor="let empresa of empresas" [value]="empresa.nombre">{{empresa.nombre}}</option>
-          </select>
-        </div>
-        <button type="submit" class="btn btn-primary">Buscar</button>
-        <button type="button" class="btn btn-secondary" (click)="limpiarFiltro()">Limpiar filtro</button>
-      </form>
-      
-    
-    <form class="mb-3" (ngSubmit)="crearEmpleado(empresa.value, nombre_completo.value, RUT.value, email.value)">
+  <h2>Lista de Empleados</h2>
+  
+  <form class="mb-3" (ngSubmit)="getEmpleados()">
       <div class="mb-3">
-        <label for="empresa" class="form-label">Empresa</label>
-        <select class="form-control" id="empresa" #empresa required>
-            <option *ngFor="let empresa of empresas" [value]="empresa.RUT">{{empresa.nombre}}</option>
+        <label for="empresaFiltro" class="form-label">Buscar por empresa</label>
+        <select class="form-control" id="empresaFiltro" [(ngModel)]="filtroEmpresa" name="filtroEmpresa">
+          <option *ngFor="let empresa of empresas" [value]="empresa.nombre">{{empresa.nombre}}</option>
         </select>
       </div>
-      <div class="mb-3">
-        <label for="nombre_completo" class="form-label">Nombre completo</label>
-        <input type="text" class="form-control" id="nombre_completo" #nombre_completo>
-      </div>
-      <div class="mb-3">
-        <label for="RUT" class="form-label">RUT</label>
-        <input type="text" class="form-control" id="RUT" #RUT>
-      </div>
-      <div class="mb-3">
-        <label for="email" class="form-label">Email</label>
-        <input type="email" class="form-control" id="email" #email>
-      </div>
-      <button type="submit" class="btn btn-primary">Crear</button>
-    </form>
-    
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Empresa</th>
-          <th>Nombre completo</th>
-          <th>RUT</th>
-          <th>Email</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let empleado of empleados">
-          <td>{{ empleado.empresa }}</td>
-          <td>{{ empleado.nombre_completo }}</td>
-          <td>{{ empleado.RUT }}</td>
-          <td>{{ empleado.email }}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+      <button type="submit" class="btn btn-primary">Buscar</button>
+      <button type="button" class="btn btn-secondary" (click)="limpiarFiltro()">Limpiar filtro</button>
+  </form>
+
+  <form class="mb-3" (ngSubmit)="crearEmpleado(empresaCrear.value, nombre_completo.value, RUT.value, email.value)">
+    <div class="mb-3">
+      <label for="empresaCrear" class="form-label">Empresa</label>
+      <select class="form-control" id="empresaCrear" #empresaCrear required>
+        <option *ngFor="let empresa of empresas" [value]="empresa.nombre">{{empresa.nombre}}</option>
+      </select>        
+    </div>
+    <div class="mb-3">
+      <label for="nombre_completo" class="form-label">Nombre completo</label>
+      <input type="text" class="form-control" id="nombre_completo" #nombre_completo>
+    </div>
+    <div class="mb-3">
+      <label for="RUT" class="form-label">RUT</label>
+      <input type="text" class="form-control" id="RUT" #RUT>
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" class="form-control" id="email" #email>
+    </div>
+    <button type="submit" class="btn btn-primary">Crear</button>
+  </form>
   
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Empresa</th>
+        <th>Nombre completo</th>
+        <th>RUT</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let empleado of empleados">
+        <td>{{ empleado.empresa }}</td>
+        <td>{{ empleado.nombre_completo }}</td>
+        <td>{{ empleado.RUT }}</td>
+        <td>{{ empleado.email }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

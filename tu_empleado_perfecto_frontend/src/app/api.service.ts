@@ -22,7 +22,7 @@ export class ApiService {
     return this.http.get<any[]>(`${this.baseUrl}/empleados/?nombre_completo=${nombre_completo}`);
   }
 
-  postEmpleado(data: {empresa: number, nombre_completo: string, RUT: string, email: string}) {
+  postEmpleado(data: {empresa: string, nombre_completo: string, RUT: string, email: string}) {
     return this.http.post(`${this.baseUrl}/empleados/`, data);
   }
   
