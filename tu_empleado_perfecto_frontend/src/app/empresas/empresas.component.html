@@ -1,0 +1,51 @@
+<div class="container mt-4">
+    <h2>Lista de Empresas</h2>
+    
+    <form class="mb-3" (ngSubmit)="getEmpresas()">
+      <div class="mb-3">
+        <label for="nombreFiltro" class="form-label">Buscar por nombre</label>
+        <input type="text" class="form-control" id="nombreFiltro" [(ngModel)]="filtroNombre" name="filtroNombre">
+      </div>
+      <button type="submit" class="btn btn-primary">Buscar</button>
+    </form>
+    
+    <form class="mb-3" (ngSubmit)="crearEmpresa(nombre.value, direccion.value, RUT.value, telefono.value)">
+      <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre</label>
+        <input type="text" class="form-control" id="nombre" #nombre>
+      </div>
+      <div class="mb-3">
+        <label for="direccion" class="form-label">Dirección</label>
+        <input type="text" class="form-control" id="direccion" #direccion>
+      </div>
+      <div class="mb-3">
+        <label for="RUT" class="form-label">RUT</label>
+        <input type="text" class="form-control" id="RUT" #RUT>
+      </div>
+      <div class="mb-3">
+        <label for="telefono" class="form-label">Teléfono</label>
+        <input type="text" class="form-control" id="telefono" #telefono>
+      </div>
+      <button type="submit" class="btn btn-primary">Crear</button>
+    </form>
+    
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Dirección</th>
+          <th>RUT</th>
+          <th>Teléfono</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let empresa of empresas">
+          <td>{{ empresa.nombre }}</td>
+          <td>{{ empresa.direccion }}</td>
+          <td>{{ empresa.RUT }}</td>
+          <td>{{ empresa.telefono }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
